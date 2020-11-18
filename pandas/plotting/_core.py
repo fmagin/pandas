@@ -1248,7 +1248,10 @@ class PlotAccessor(PandasObject):
         """
         return self(kind="box", by=by, **kwargs)
 
-    def hist(self, by=None, bins=10, **kwargs):
+    def hist(self,
+             by=None,
+             bins: Union[int, Sequence[int]]=10,
+             **kwargs):
         """
         Draw one histogram of the DataFrame's columns.
 
@@ -1261,8 +1264,8 @@ class PlotAccessor(PandasObject):
         ----------
         by : str or sequence, optional
             Column in the DataFrame to group by.
-        bins : int, default 10
-            Number of histogram bins to be used.
+        bins : int or sequence of ints, default 10
+            Number or sequence of boundaries of histogram bins
         **kwargs
             Additional keyword arguments are documented in
             :meth:`DataFrame.plot`.
